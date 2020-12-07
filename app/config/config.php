@@ -9,7 +9,7 @@
     // App Root
     define('APP_ROOT', dirname(dirname(__FILE__)));
     // URL Root
-    define('URL_ROOT','http://localhost/php-mvc');
+    define('URL_ROOT','http://localhost/b3-web');
     // Site Name
     define('SITE_NAME', 'MVC/PHP');
     // App Version
