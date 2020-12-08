@@ -37,7 +37,3 @@
           return false;
       }
     }
-
-    function isAdmin(){
-        return true;
-      }
