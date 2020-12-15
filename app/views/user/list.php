@@ -2,14 +2,14 @@
 <?php require APP_ROOT . '/views/inc/aside.php'; ?>
 <div class="page-wrapper">
   <div class="container-fluid">
-  <?php flash('user_message'); ?>
+    <?php flash('user_message'); ?>
 
     <div class="row">
       <div class="col-12">
         <div class="card">
           <div class="card-body d-flex justify-content-between">
             <h3 class="card-title">Danh sách user</h3>
-            <a class="btn btn-success" href="<?php echo URL_ROOT.'/admin/add_user'; ?>">Thêm user mới</a>
+            <a class="btn btn-success" href="<?php echo URL_ROOT . '/admin/add_user'; ?>">Thêm user mới</a>
           </div>
           <div class="table-responsive">
             <table class="table">
@@ -18,6 +18,7 @@
                   <th scope="col">#</th>
                   <th scope="col">Name</th>
                   <th scope="col">Email</th>
+                  <th scope="col">Role</th>
                   <th scope="col">Action</th>
                 </tr>
               </thead>
@@ -27,10 +28,17 @@
                     <th scope="row"><?php echo $user->id; ?></th>
                     <td><?php echo $user->name; ?></td>
                     <td><?php echo $user->email; ?></td>
+                    <td><?php echo $user->permission; ?></td>
                     <td>
-                      <form action="<?php echo URL_ROOT; ?>/admin/delete_user/<?php echo $user->id; ?>" method="post">
-                        <input type="submit" value="Delete" class="btn btn-danger btn-sm">
-                      </form>
+                      <div class="d-flex">
+                        <form class="mr-2" action="<?php echo URL_ROOT; ?>/admin/update_user/<?php echo $user->id; ?>" method="get">
+                          <input type="submit" value="Update" class="btn btn-warning btn-sm">
+                        </form>
+                        <form action="<?php echo URL_ROOT; ?>/admin/delete_user/<?php echo $user->id; ?>" method="post">
+                          <input type="submit" value="Delete" class="btn btn-danger btn-sm">
+                        </form>
+                      </div>
+
                     </td>
                   </tr>
                 <?php } ?>

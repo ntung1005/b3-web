@@ -8,13 +8,11 @@
                 <li>
                     <!-- User Profile-->
                     <div class="user-profile d-flex no-block dropdown m-t-20">
-                        <div class="user-pic"><img src="<?php echo URL_ROOT; ?>/assets/images/users/1.jpg" alt="users"
-                                class="rounded-circle" width="40" /></div>
+                        <div class="user-pic"><img src="<?php echo URL_ROOT; ?>/assets/images/users/1.jpg" alt="users" class="rounded-circle" width="40" /></div>
                         <div class="user-content hide-menu m-l-10">
-                            <a href="javascript:void(0)" class="" id="Userdd" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a href="javascript:void(0)" class="" id="Userdd" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <h5 class="m-b-0 user-name font-medium"><?php echo $_SESSION['user_name']; ?></h5>
-                                <span class="op-5 user-email"><?php echo $_SESSION['user_email']?></span>
+                                <span class="op-5 user-email"><?php echo $_SESSION['user_email'] ?></span>
                             </a>
                             <!-- <div class="dropdown-menu dropdown-menu-right" aria-labelledby="Userdd">
                                 <a class="dropdown-item" href="javascript:void(0)"><i
@@ -36,19 +34,10 @@
                 </li>
 
                 <!-- User Profile-->
-                <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                        href="<?php echo URL_ROOT; ?>/admin" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span
-                            class="hide-menu">Trang chủ</span></a></li>
-                <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                        href="<?php echo URL_ROOT; ?>/admin/users" aria-expanded="false"><i
-                            class="mdi mdi-account-network"></i><span class="hide-menu">Users</span></a></li>
-                <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                        href="table-basic.html" aria-expanded="false"><i class="mdi mdi-border-all"></i><span
-                            class="hide-menu">Table</span></a></li>
-                <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                        href="icon-material.html" aria-expanded="false"><i class="mdi mdi-face"></i><span
-                            class="hide-menu">Icon</span></a></li>
-            
+                <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?php echo URL_ROOT; ?>/admin" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Trang chủ</span></a></li>
+                <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?php echo URL_ROOT; ?>/admin/users" aria-expanded="false"><i class="mdi mdi-account-network"></i><span class="hide-menu">Users</span></a></li>
+                <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?php echo URL_ROOT; ?>/admin/products" aria-expanded="false"><i class="mdi mdi-border-all"></i><span class="hide-menu">Products</span></a></li>
+
             </ul>
 
         </nav>

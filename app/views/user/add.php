@@ -22,6 +22,13 @@
                             <span class="invalid-feedback"><?php echo $data['email_err']; ?></span>
                         </div>
                         <div class="form-group">
+                            <label for="name">Role: <sup>*</sup></label>
+                            <select name="role" class="form-control form-control">
+                                <option value="admin">Admin</option>
+                                <option value="user">User</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
                             <label for="name">Password: <sup>*</sup></label>
                             <input type="password" name="password" class="form-control form-control <?php echo (!empty($data['password_err'])) ? 'is-invalid' : ''; ?>" value="<?php echo $data['password']; ?>">
                             <span class="invalid-feedback"><?php echo $data['password_err']; ?></span>

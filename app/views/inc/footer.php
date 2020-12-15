@@ -22,7 +22,7 @@
 <script src="<?php echo URL_ROOT; ?>./assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="<?php echo URL_ROOT; ?>./js/app-style-switcher.js"></script>
 <!--Wave Effects -->
-<script src=<?php echo URL_ROOT; ?>"./js/waves.js"></script>
+<script src="<?php echo URL_ROOT; ?>./js/waves.js"></script>
 <!--Menu sidebar -->
 <script src="<?php echo URL_ROOT; ?>./js/sidebarmenu.js"></script>
 <!--Custom JavaScript -->

@@ -56,11 +56,11 @@
                          'email_err' => 'Email or Password are incorrect',
                          'password_err' => 'Email or Password are incorrect',
                      ];
-                     $this->view('users/login', $data);
+                     $this->view('auth/login', $data);
                  }
              } else {
                  // Load view with errors
-                 $this->view('users/login',$data);
+                 $this->view('auth/login',$data);
              }
          } else {
              // Init data
@@ -71,7 +71,7 @@
                  'password_err' => '',
              ];
              // Load view
-             $this->view('users/login', $data);
+             $this->view('auth/login', $data);
          }
        }
 
@@ -137,7 +137,7 @@
                     }
                 } else{
                     // Load view with errors
-                    $this->view('users/register',$data);
+                    $this->view('auth/register',$data);
                 }
            } else {
                // Init data
@@ -165,82 +165,82 @@
            redirect('auth/login');
        }
 
-       public function changePassword()
-       {
-           if(!isLoggedIn() ){
-               redirect('users/login');
-           }
+    //    public function changePassword()
+    //    {
+    //        if(!isLoggedIn() ){
+    //            redirect('auth/login');
+    //        }
 
-           //Check for POST
-           if ($_SERVER['REQUEST_METHOD']=='POST') {
-               // Sanitize POST Data
-               $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+    //        //Check for POST
+    //        if ($_SERVER['REQUEST_METHOD']=='POST') {
+    //            // Sanitize POST Data
+    //            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
-               // Process form
-               $data = [
-                   'email' => $_SESSION['user_email'],
-                   'password_old' => trim($_POST['password_old']),
-                   'password' => trim($_POST['password']),
-                   'confirm_password' => trim($_POST['confirm_password']),
-                   'password_old_err' => '',
-                   'password_err' => '',
-                   'confirm_password_err' => ''
-               ];
+    //            // Process form
+    //            $data = [
+    //                'email' => $_SESSION['user_email'],
+    //                'password_old' => trim($_POST['password_old']),
+    //                'password' => trim($_POST['password']),
+    //                'confirm_password' => trim($_POST['confirm_password']),
+    //                'password_old_err' => '',
+    //                'password_err' => '',
+    //                'confirm_password_err' => ''
+    //            ];
 
-               // Validate Password Old
-               if ( empty($data['password_old']) ) {
-                   $data['password_old_err'] = 'Please inform your old password';
-               } elseif ( strlen($data['password_old']) < 6 ) {
-                   $data['password_old_err'] = 'Password old must be at least 6 characters';
-               } else if (! $this->userModel->checkPassword($data['email'], $data['password_old']) ) {
-                   $data['password_old_err'] = 'Your old password is wrong!';
-               }
+    //            // Validate Password Old
+    //            if ( empty($data['password_old']) ) {
+    //                $data['password_old_err'] = 'Please inform your old password';
+    //            } elseif ( strlen($data['password_old']) < 6 ) {
+    //                $data['password_old_err'] = 'Password old must be at least 6 characters';
+    //            } else if (! $this->userModel->checkPassword($data['email'], $data['password_old']) ) {
+    //                $data['password_old_err'] = 'Your old password is wrong!';
+    //            }
 
-                   // Validate Password
-               if ( empty($data['password']) ) {
-                   $data['password_err'] = 'Please inform your password';
-               } elseif ( strlen($data['password']) < 6 ) {
-                   $data['password_err'] = 'Password must be at least 6 characters';
-               }
+    //                // Validate Password
+    //            if ( empty($data['password']) ) {
+    //                $data['password_err'] = 'Please inform your password';
+    //            } elseif ( strlen($data['password']) < 6 ) {
+    //                $data['password_err'] = 'Password must be at least 6 characters';
+    //            }
 
-               // Validate Confirm Password
-               if ( empty($data['confirm_password']) ) {
-                   $data['confirm_password_err'] = 'Please confirm your password';
-               } else if ( $data['password'] != $data['confirm_password'] ) {
-                   $data['confirm_password_err'] = 'Password does not match!';
-               }
+    //            // Validate Confirm Password
+    //            if ( empty($data['confirm_password']) ) {
+    //                $data['confirm_password_err'] = 'Please confirm your password';
+    //            } else if ( $data['password'] != $data['confirm_password'] ) {
+    //                $data['confirm_password_err'] = 'Password does not match!';
+    //            }
 
-               //Make sure errors are empty
-               if ( empty($data['password_old_err']) && empty($data['password_err']) && empty($data['confirm_password_err']) ) {
-                   // Hash Password
-                   $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
+    //            //Make sure errors are empty
+    //            if ( empty($data['password_old_err']) && empty($data['password_err']) && empty($data['confirm_password_err']) ) {
+    //                // Hash Password
+    //                $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
 
-                   if ( $this->userModel->updatePassword($data) ) {
-                       flash('register_success','Password updated!');
-                       redirect('posts');
-                   } else {
-                       die ('Something wrong');
-                   }
-               } else{
-                   // Load view with errors
-                   $this->view('users/changepassword',$data);
-               }
-           } else {
-               // Init data
-               $data = [
-                   'email' => $_SESSION['user_email'],
-                   'password_old' => '',
-                   'password' => '',
-                   'confirm_password' => '',
-                   'password_old_err' => '',
-                   'password_err' => '',
-                   'confirm_password_err' => ''
-               ];
+    //                if ( $this->userModel->updatePassword($data) ) {
+    //                    flash('register_success','Password updated!');
+    //                    redirect('posts');
+    //                } else {
+    //                    die ('Something wrong');
+    //                }
+    //            } else{
+    //                // Load view with errors
+    //                $this->view('users/changepassword',$data);
+    //            }
+    //        } else {
+    //            // Init data
+    //            $data = [
+    //                'email' => $_SESSION['user_email'],
+    //                'password_old' => '',
+    //                'password' => '',
+    //                'confirm_password' => '',
+    //                'password_old_err' => '',
+    //                'password_err' => '',
+    //                'confirm_password_err' => ''
+    //            ];
 
-               // Load view
-               $this->view('users/changepassword', $data);
-           }
-       }
+    //            // Load view
+    //            $this->view('users/changepassword', $data);
+    //        }
+    //    }
 
 
        public function createUserSession($user)
