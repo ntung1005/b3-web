@@ -10,12 +10,12 @@
            $this->db = new Database();
        }
 
-       public function getProducts()
+       public function getProducts($limit)
        {
-           $this->db->query('select p.id as product_id, p.user_id, u.name as user_name, p.name, p.body, p.price, p.price_sale, p.soluong, p.image, p.created_at 
-                                 from products p 
+           $this->db->query('select p.id as product_id, p.user_id, u.name as user_name,p.count, p.name, p.body, p.price, p.price_sale, p.soluong, p.image, p.created_at 
+                                 from products p
                                  left join users u on u.id = p.user_id 
-                                 order by p.created_at desc');
+                                 order by p.created_at desc limit '.$limit);
            return $this->db->resultSet();
 
        }

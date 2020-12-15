@@ -2,8 +2,8 @@
     // Database Params
     define('DB_HOST','localhost');
     define('DB_USER','root');
-    define('DB_PASS','');
-    define('DB_NAME','mvc');
+    define('DB_PASS','123456');
+    define('DB_NAME','mvcsql');
     define('DB_CHARSET','utf8');
 
     // App Root

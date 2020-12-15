@@ -20,8 +20,9 @@ class AdminController extends Controller
   public function index()
   {
 
+    $data['products'] = $this->productModel->getProducts(10);
 
-    $this->view('admin/index');
+    $this->view('admin/index', $data);
   }
 
   public function users()
@@ -208,7 +209,7 @@ class AdminController extends Controller
   {
 
     
-    $data['products'] = $this->productModel->getProducts();
+    $data['products'] = $this->productModel->getProducts(20);
 
     $this->view('product/list', $data);
   }
